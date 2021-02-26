@@ -1,0 +1,6 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Disallow:
+
+
+cookie bot id: a830f76a-931f-4737-bb3e-dd1daa70f122

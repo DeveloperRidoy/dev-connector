@@ -1,0 +1,6 @@
+{
+    "mongoURI": "mongodb+srv://supernova:219021wq@devconnector.x34ls.mongodb.net/devconnector?retryWrites=true&w=majority",
+    "jwtSecret": "mysecrettoken",
+    "githubClientId": "b916f26bb89c9852fd44",
+    "githubClientSecret": "a240bbc861e9c5ff0f3cbe9ff8b61821e4d82425"
+}
