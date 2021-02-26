@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 
 const NofFound = () => {
     return (
-        <div className="text-center p-3">
-            <p className="lead">Oops! Could not find what you were looking for</p>
+        <div className=" p-3">
+            <h1 className="x-large text-primary"> <i className="fas fa-exclamation-triangle"></i> Page Not Found</h1>
             <Link to="/">Back to home</Link>
         </div>
     )
