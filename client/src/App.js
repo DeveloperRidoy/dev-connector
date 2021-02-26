@@ -52,15 +52,27 @@ const App = () => {
             <Route exact path="/profiles" component={Profiles} />
             <PrivateRoute exact path="/profile/:userID" component={Profile} />
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
-            <PrivateRoute exact path="/create-profile" component={CreateProfile} />
+            <PrivateRoute
+              exact
+              path="/create-profile"
+              component={CreateProfile}
+            />
             <PrivateRoute exact path="/edit-profile" component={EditProfile} />
-            <PrivateRoute exact path="/add-experience" component={AddExperience} />
-            <PrivateRoute exact path="/add-education" component={AddEducation} />
+            <PrivateRoute
+              exact
+              path="/add-experience"
+              component={AddExperience}
+            />
+            <PrivateRoute
+              exact
+              path="/add-education"
+              component={AddEducation}
+            />
             <PrivateRoute exact path="/post/:postID" component={Post} />
-            <PrivateRoute exact path="/posts" component={Posts} /> 
-            <Route component={NofFound}/>
-          </Switch> 
+            <PrivateRoute exact path="/posts" component={Posts} />
+          </Switch>
         </div>
+        <Route component={NofFound} />
       </Router>
     </Provider>
   );
