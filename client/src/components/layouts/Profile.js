@@ -15,7 +15,6 @@ const Profile = ({getProfileById, getGithubRepos,  profile: {loading, reposLoadi
  
   useEffect(() => {
     if (profile !== null) profile.gitusername && getGithubRepos(profile.gitusername)
-    console.log(profile);
   }, [profile])
 
   return loading 
