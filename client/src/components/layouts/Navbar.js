@@ -50,7 +50,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           <i className="fas fa-code"></i> DevConnector
         </Link>
       </h1>
-      {!loading && !isAuthenticated ? authLinks : gusetLinks}
+      {loading
+        ? ''
+        : isAuthenticated ? gusetLinks : authLinks} 
     </nav>
   );
 }        
@@ -64,4 +66,5 @@ const mapStateToProps = state => ({
   auth: state.auth
 })
 
-export default connect(mapStateToProps, {logout})(Navbar)      
+export default connect(mapStateToProps, { logout })(Navbar)      
+
