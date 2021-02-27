@@ -7,7 +7,7 @@ import Spinner from "./Spinner";
 import { v4 as uuid } from 'uuid';
 import Moment from 'react-moment';
 const Profile = ({getProfileById, getGithubRepos,  profile: {loading, reposLoading, profile, repos}, match}) => {
-    
+
   useEffect(() => {
     const userID = match.params.userID
     getProfileById(userID);
@@ -15,6 +15,7 @@ const Profile = ({getProfileById, getGithubRepos,  profile: {loading, reposLoadi
  
   useEffect(() => {
     if (profile !== null) profile.gitusername && getGithubRepos(profile.gitusername)
+    console.log(profile);
   }, [profile])
 
   return loading 
@@ -120,13 +121,15 @@ const Profile = ({getProfileById, getGithubRepos,  profile: {loading, reposLoadi
             </div>
           ))}
         </div>
-
+   
         {/* <!-- Github --> */}
         <div className="profile-github">
           <h2 className="text-primary my-1">
             <i className="fab fa-github"></i> Github Repos
-          </h2>
-              {reposLoading
+          </h2>  
+              {!profile.gitusername
+                ? <div>This user has not provided his/her github username yet</div>
+                : reposLoading
                 ? <Spinner />
                 : repos.length === 0
                 ? <div>This user has no github repos yet</div>
