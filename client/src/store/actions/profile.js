@@ -6,7 +6,7 @@ import { ADD_EDUCATION, ADD_EDUCATION_FAIL, ADD_EXPERIENCE, ADD_EXPERIENCE_FAIL,
 export const getCurrentProfile = () => async dispatch => {
     dispatch({ type: CLEAR_PROFILE });
     try {
-        const res = await Axios.get('api/profile/me');
+        const res = await Axios.get('/api/profile/me');
         dispatch({
             type: GET_PROFILE,
             payload: res.data
@@ -26,7 +26,7 @@ export const getProfiles = () => async dispatch => {
     dispatch({ type: CLEAR_PROFILE })
     dispatch({type: START_PROFILE_LOADING }) 
     try {
-        const res = await Axios.get('api/profile');
+        const res = await Axios.get('/api/profile');
         dispatch({
             type: GET_PROFILES,
             payload: res.data
@@ -45,7 +45,7 @@ export const getProfiles = () => async dispatch => {
 export const getProfileById = (userID) => async dispatch => {
     dispatch({ type: CLEAR_PROFILE });
     try {
-        const res = await Axios.get(`api/profile/user/${userID}`);
+        const res = await Axios.get(`/api/profile/user/${userID}`);
         dispatch({
             type: GET_PROFILE,
             payload: res.data
@@ -63,7 +63,7 @@ export const getProfileById = (userID) => async dispatch => {
 // Get user's github repos
 export const getGithubRepos = (userName) => async dispatch => {
     try {
-        const res = await Axios.get(`api/profile/github/${userName}`);
+        const res = await Axios.get(`/api/profile/github/${userName}`);
         dispatch({
             type: GET_GITHUB_REPOS,
             payload: res.data
@@ -81,7 +81,7 @@ export const getGithubRepos = (userName) => async dispatch => {
 // Create or Update profile
 export const createProfile = (formData, history, edit = false) => async  dispatch => {
     try {
-        const url = 'api/profile';
+        const url = '/api/profile';
         const res = await Axios.post(url, formData);
         dispatch({
             type: CREATE_PROFILE,

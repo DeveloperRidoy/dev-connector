@@ -1,5 +1,4 @@
 import './App.css';
-import { useEffect } from 'react';
 import Landing from './components/layouts/Landing';
 import Navbar from './components/layouts/Navbar';
 import { BrowserRouter as Router, Route, Switch }  from 'react-router-dom'
@@ -18,15 +17,13 @@ import removeAuthToken from "./utils/removeAuthToken";
 if (localStorage.token) setAuthToken(localStorage.token);
  
 const App = () => {
-
-  useEffect(() => store.dispatch(loadUser), []); 
- 
+    
   if (localStorage.token) {
     setAuthToken(localStorage.token);
+    store.dispatch(loadUser);
   } else {
     removeAuthToken()
   }
-
   
   return (
     <Provider store={store}>

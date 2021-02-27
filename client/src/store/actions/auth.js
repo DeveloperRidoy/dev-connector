@@ -5,7 +5,7 @@ import { setAlert } from '../actions/alert';
 // Load User
 export const loadUser = async dispatch => { 
     try {
-        const res = await Axios.get('api/auth');
+        const res = await Axios.get('/api/auth');
         dispatch({ type: USER_LOADED, payload: res.data })
     } catch (error) {
        if (error.response) {
@@ -19,7 +19,7 @@ export const loadUser = async dispatch => {
 
 // Register User
 export const register = ({name, email, password}) => async dispatch => {
-    const url = 'api/users';
+    const url = '/api/users';
     const body = { name, email, password }; 
     
     try {
@@ -84,4 +84,4 @@ export const deleteAccount = () => async dispatch => {
       }    
     }
       
-}
+} 
