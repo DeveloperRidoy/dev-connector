@@ -2,9 +2,8 @@ import './App.css';
 import Landing from './components/layouts/Landing';
 import Navbar from './components/layouts/Navbar';
 import { BrowserRouter as Router, Route, Switch }  from 'react-router-dom'
-
+import { useEffect } from 'react';
 import Routes from './components/routing/Routes';
-
 // redux store
 import { Provider } from 'react-redux';
 import store from './store/store';
@@ -16,15 +15,19 @@ import removeAuthToken from "./utils/removeAuthToken";
 // set x-auth-token in axios from localStorage
 if (localStorage.token) setAuthToken(localStorage.token);
  
+
 const App = () => {
-    
-  if (localStorage.token) {
-    setAuthToken(localStorage.token);
-    store.dispatch(loadUser);
-  } else {
-    removeAuthToken()
-  }
-  
+
+  store.dispatch(loadUser);
+       
+  useEffect(() => {
+    if (localStorage.token) {
+      setAuthToken(localStorage.token); 
+    } else {
+      removeAuthToken();
+    }
+  }, [])
+
   return (
     <Provider store={store}>
       <Router>
@@ -38,7 +41,7 @@ const App = () => {
   );
 }
 
-
+    
 
 export default App;
                    

@@ -6,8 +6,8 @@ import Spinner from '../Spinner';
 import PostItem from './PostItem';
 import PostForm from './PostForm';
 
-const Posts = ({ posts, loading, getPosts, clearPost }) => {
-  
+const Posts = ({ posts, postLoading, authLoading, getPosts, clearPost }) => {
+         
   useEffect(() => {
     getPosts()
     return () => clearPost()
@@ -27,7 +27,7 @@ const Posts = ({ posts, loading, getPosts, clearPost }) => {
         </div>
 
         <div className="posts">
-          {loading 
+          {postLoading || authLoading
               ? (<Spinner />)
               : posts.length === 0
               ? (<div>No posts from any developers yet. <h4>Be the first to post!</h4></div>)       
@@ -39,14 +39,16 @@ const Posts = ({ posts, loading, getPosts, clearPost }) => {
 
 Posts.propTypes = {
     posts: PropTypes.array.isRequired,
-    loading: PropTypes.bool.isRequired,
+    postLoading: PropTypes.bool.isRequired,
+    authLoading: PropTypes.bool.isRequired,
     getPosts: PropTypes.func.isRequired,
     clearPost: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => ({
     posts: state.post.posts,
-    loading: state.post.loading
+    postLoading: state.post.loading,
+    authLoading: state.auth.loading
 })
 
 export default connect(mapStateToProps, {getPosts, clearPost})(Posts)
