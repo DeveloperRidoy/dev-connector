@@ -16,7 +16,7 @@ const Profile = ({getProfileById, getGithubRepos,  profile: {loading, reposLoadi
   useEffect(() => {
     if (profile !== null) profile.gitusername && getGithubRepos(profile.gitusername)
   }, [profile])
-
+  
   return loading 
     ? <Spinner />
     : profile === null
@@ -38,13 +38,6 @@ const Profile = ({getProfileById, getGithubRepos,  profile: {loading, reposLoadi
           <p className="lead">{profile.status}</p>
           <p>{profile.location}</p>
           <div className="icons my-1">
-            <Link
-              to="//traversymedia.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fas fa-globe fa-2x"></i>
-            </Link>
             {profile.social &&
               Object.keys(profile.social).map( platform => (
                 <Link 
