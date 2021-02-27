@@ -9,7 +9,6 @@ export const loadUser = async dispatch => {
         dispatch({ type: USER_LOADED, payload: res.data })
     } catch (error) {
        if (error.response) {
-         dispatch(setAlert(error.response.data.msg, "danger", 5000));
          dispatch({ type: AUTH_ERROR, payload: error.response.data });
        } else {
          dispatch(setAlert("server error", "danger", 5000));

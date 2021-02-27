@@ -4,8 +4,6 @@ const router = express.Router();
 const { check, validationResult } = require('express-validator');
 const User = require('../../models/user')
 const Post = require('../../models/post')
-const profile = require('../../models/profile');
-const user = require("../../models/user");
  
 // @route     POST api/posts
 // @desc      Create a post

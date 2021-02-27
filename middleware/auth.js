@@ -6,7 +6,7 @@ module.exports = (req, res, next) => {
     const token = req.header('x-auth-token')
 
     // Check if no token
-    if (!token) { return res.status(400).json({ msg: 'No token, authorization failed' }) }
+    if (!token) { return res.status(400).json({ msg: 'You are not logged in' }) }
     
     // Verify token
     try {
