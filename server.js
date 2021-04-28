@@ -16,7 +16,7 @@ app.use(express.json({ extended: false }))
 
 // define routes
 const routes = ['auth', 'posts', 'profile', 'users'];
-routes.map(route => app.use(`/api/${route}`, require(`./routes/api/${route}`))); 
+routes.map(route => app.use(`/api/${route}`, require(`./routes/api/${route}`)));
 
 // serve static assets in production
 if (process.env.NODE_ENV = 'production') {
