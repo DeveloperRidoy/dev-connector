@@ -19,7 +19,7 @@ const routes = ['auth', 'posts', 'profile', 'users'];
 routes.map(route => app.use(`/api/${route}`, require(`./routes/api/${route}`)));
 
 // serve static assets in production
-if (process.env.NODE_ENV = 'production') {
+if (process.env.NODE_ENV == 'production') {
     // Set static folder
     app.use(express.static('client/build'))
     app.get('*', (req, res) => {

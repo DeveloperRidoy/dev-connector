@@ -65,7 +65,10 @@ const Dashboard = ({ getCurrentProfile, removeExperience, removeEducation, delet
               <td>{exp.company}</td>
               <td className="hide-sm">{exp.title}</td>
               <td className="hide-sm">
-                {exp.from} to {exp.to === null ? "current" : exp.to}
+                {new Date(exp.from).toLocaleDateString()} to{" "}
+                {exp.to === null
+                  ? "current"
+                  : new Date(exp.to).toLocaleTimeString()}
               </td>
               <td>
                 <button
@@ -96,7 +99,8 @@ const Dashboard = ({ getCurrentProfile, removeExperience, removeEducation, delet
               <td>{edu.school}</td>
               <td className="hide-sm">{edu.degree}</td>
               <td className="hide-sm">
-                {edu.from} to {edu.current ? "current" : edu.to}
+                {new Date(edu.from).toLocaleDateString()} to{" "}
+                {edu.current ? "current" : new Date(edu.to).toLocaleDateString()}
               </td>
               <td>
                 <button
