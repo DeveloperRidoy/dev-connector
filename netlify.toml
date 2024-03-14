@@ -1,3 +1,12 @@
 [build]
-  command = "cd client && npm install && npm run build && cd .. && npm install && npm run start"
+  command = "cd client && npm install && npm run build && cd .. && npm install"
   publish = "client/build"
+
+[functions]
+  external_node_modules = ["express"]
+  node_bundler = "esbuild"
+[[redirects]]
+  force = true
+  from = "/api/*"
+  status = 200
+  to = "/.netlify/functions/api/:splat"

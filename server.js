@@ -1,5 +1,5 @@
 if (process.env.NODE_ENV != "production") {
-    require("dotenv").config({ path: "./.env.local" });
+  require("dotenv").config({ path: "./.env.local" });
 }
 const express = require("express");
 const connectDB = require("./config/db");
@@ -23,14 +23,17 @@ routes.map((route) =>
 );
 
 // serve static assets in production
-if (process.env.NODE_ENV == "production") {
-  // Set static folder
-  app.use(express.static("client/build"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
+// if (process.env.NODE_ENV == "production") {
+//   // Set static folder
+//   app.use(express.static("client/build"));
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+//   });
+// }
+
+if (process.env.NODE_ENV != "production") {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => console.log(`server running on PORT ${PORT}`));
 }
 
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => console.log(`server running on PORT ${PORT}`));
+module.exports = app;
