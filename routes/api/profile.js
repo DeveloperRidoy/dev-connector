@@ -1,7 +1,6 @@
 const express = require("express");
 const auth = require("../../middleware/auth");
 const router = express.Router();
-const config = require('config');
 const axios = require('axios');
 const Profile = require('../../models/profile');
 const Post = require('../../models/post');
@@ -251,15 +250,15 @@ router.get('/github/:username', async (req, res) => {
     try {
         const url = `https://api.github.com/users/${req.params.username}/repos`;
         const options = {
-            headers: {
-                'user-agent': 'node.js'
-            },
-            params: {
-                'per_page': 5,
-                'sort': 'created:asc',
-                'client_id': config.get('githubClientId'),
-                'client_secret': config.get('githubClientSecret')
-            }
+          headers: {
+            "user-agent": "node.js",
+          },
+          params: {
+            per_page: 5,
+            sort: "created:asc",
+            client_id: process.env.githubClientId,
+            client_secret: process.env.githubClientSecret,
+          },
         };
         const response = await axios.get(url, options);
         const repos = response.data

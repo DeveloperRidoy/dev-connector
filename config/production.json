@@ -1,6 +1,0 @@
-{
-  "mongoURI": "mongodb+srv://ridoy51306:yJLBlkz5QtLeLCyc@dev-connector.g6ht3fl.mongodb.net/?retryWrites=true&w=majority",
-  "jwtSecret": "fdjfkdfdjfldjflkdclndkcnlsjcldcdklsmclkmdclscmlcmdmclcmskldcmlscmlkdflkk4j4lkjl4kjltlj5",
-  "githubClientId": "b916f26bb89c9852fd44",
-  "githubClientSecret": "b6a11ecc0a365ced0856eb0ab21c41b1e580900b"
-}

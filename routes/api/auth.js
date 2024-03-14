@@ -5,7 +5,6 @@ const User = require('../../models/user');
 const { check, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const config = require('config');
 
 // @route     GET api/auth
 // @desc      Check if user exists. return user info as json if exists.
@@ -52,14 +51,14 @@ router.post('/', [
             }
             
             jwt.sign(
-                payload,
-                config.get('jwtSecret'),
-                { expiresIn: 360000 },
-                (err, token) => {
-                    if (err) throw err;
-                    res.json({msg: 'login successful', token, user})
-                }
-            )
+              payload,
+              process.env.jwtSecret,
+              { expiresIn: 360000 },
+              (err, token) => {
+                if (err) throw err;
+                res.json({ msg: "login successful", token, user });
+              }
+            );
         } catch (error) {
             console.log(error.message)
             res.status(500).json({msg: 'server error'})
