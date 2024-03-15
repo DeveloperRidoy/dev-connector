@@ -7,7 +7,7 @@ const app = express();
 const path = require("path");
 
 // connect to database
-await connectDB();
+connectDB();
 
 //middleware
 
